@@ -1,0 +1,35 @@
+name: Daily Vestaboard Lyric
+
+on:
+  schedule:
+    # Runs every day at 9:00 AM PST (17:00 UTC)
+    # PST is UTC-8, so 9:00 AM PST = 5:00 PM UTC (17:00)
+    # Note: During PDT (Daylight Saving Time), this will run at 9:00 AM PDT
+    - cron: '0 17 * * *'
+  
+  # Allow manual triggering from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  send-lyric:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Send daily lyric to Vestaboard
+        env:
+          VESTABOARD_API_KEY: ${{ secrets.VESTABOARD_API_KEY }}
+        run: python main.py
