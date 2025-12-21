@@ -34,10 +34,8 @@ For Google Sheets integration in GitHub Actions:
 1. Go to your repo **Settings** → **Secrets and variables** → **Actions**
 2. Add these secrets:
    - `VESTABOARD_API_KEY` - Your Vestaboard API key
-   - `GOOGLE_SHEET_ID` - Your Google Sheet ID
-   - `GOOGLE_CREDENTIALS` - Paste the entire contents of your service account JSON file
-
-For the workflow to work, you'll need to update `.github/workflows/daily_lyric.yml` to write the credentials to a file.
+   - `GOOGLE_SHEET_ID` - Your Google Sheet ID (optional)
+   - `GOOGLE_CREDENTIALS` - Paste the entire contents of your service account JSON file (optional)
 
 ### 4. Done!
 The workflow runs daily at 9 AM PST. Manually trigger it from the **Actions** tab to test.
@@ -84,9 +82,11 @@ python main.py
 ## How It Works
 
 1. GitHub Actions triggers daily (or manually)
-2. Script picks a random lyric
-3. Formats it via Vestaboard's VBML API
-4. Sends to your board via Read/Write API
+2. Script attempts to fetch lyrics from Google Sheets (if configured)
+3. If Google Sheets fails or isn't configured, falls back to hardcoded lyrics
+4. Picks a random lyric
+5. Formats it via Vestaboard's VBML API
+6. Sends to your board via Read/Write API
 
 ## Troubleshooting
 
