@@ -13,6 +13,10 @@ ENV/
 .env.local
 *.key
 
+# Google credentials
+*credentials*.json
+service-account*.json
+
 # IDE
 .vscode/
 .idea/
