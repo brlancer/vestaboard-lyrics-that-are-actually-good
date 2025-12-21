@@ -114,8 +114,8 @@ def format_lyric_with_vbml(lyric: str, api_key: str) -> Optional[list]:
         "components": [
             {
                 "style": {
-                    "justify": "center",
-                    "align": "left"
+                    "justify": "left",
+                    "align": "center"
                 },
                 "template": lyric
             }
