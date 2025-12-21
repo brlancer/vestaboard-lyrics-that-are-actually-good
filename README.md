@@ -41,8 +41,8 @@ python main.py
 
 ## Security
 
-✅ API keys are stored securely in GitHub Secrets  
-✅ Never hardcoded in the codebase  
+✅ API keys are stored securely in GitHub Secrets
+✅ Never hardcoded in the codebase
 ✅ Automatically masked in workflow logs
 
 **Note**: GitHub Secrets is the recommended approach for sensitive credentials in GitHub Actions. The secret is encrypted and only exposed to the workflow at runtime as an environment variable.
