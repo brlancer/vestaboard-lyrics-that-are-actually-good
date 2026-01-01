@@ -2,10 +2,10 @@ name: Daily Vestaboard Lyric
 
 on:
   schedule:
-    # Runs every day at 9:00 AM PST (17:00 UTC)
-    # PST is UTC-8, so 9:00 AM PST = 5:00 PM UTC (17:00)
-    # Note: During PDT (Daylight Saving Time), this will run at 9:00 AM PDT
-    - cron: '0 17 * * *'
+    # Runs every day at 12:00 PM PST (20:00 UTC)
+    # PST is UTC-8, so 12:00 PM PST = 8:00 PM UTC (20:00)
+    # Note: During PDT (Daylight Saving Time), this will run at 12:00 PM PDT
+    - cron: '0 20 * * *'
   
   # Allow manual triggering from the Actions tab
   workflow_dispatch:
